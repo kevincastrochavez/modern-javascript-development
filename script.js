@@ -10,9 +10,25 @@
 // import add, { addToCart, totalPrice as price, tq } from './shoppingCart.js';
 // console.log(price);
 
-import add, { cart } from './shoppingCart.js';
-add('pizza', 2);
-add('bread', 5);
-add('apples', 4);
+// import add, { cart } from './shoppingCart.js';
+// add('pizza', 2);
+// add('bread', 5);
+// add('apples', 4);
 
-console.log(cart);
+// console.log(cart);
+
+///////////////////////////////////////
+// CommonJS Modules
+const cart = [];
+const shippingCost = 10;
+
+// Export
+export.addTocart = function (product, quantity) {
+  cart.push({ product, quantity });
+  console.log(
+    `${quantity} ${product} added to cart (sipping cost is ${shippingCost})`
+  );
+};
+
+// Import
+const { addTocart } = require('./shoppingCart.js');
